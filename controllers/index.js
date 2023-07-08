@@ -1,19 +1,15 @@
+import { apiKey, apiUrl } from "./api.js";
+
 // * Funcionalidad botones *
 const inputBuscar = document.getElementById("input-buscar");
 const botonBuscar = document.getElementById("boton-buscar");
 const tarjetas = document.getElementById("tarjetas");
-
-// * Funcionalidad API *
-const apiKey = "d8410a443d3245f70eb5951849b00d90";
-const apiUrl = "https://api.themoviedb.org/3";
-
 
 function obtenerPeliculasPopulares() {
   const url = `${apiUrl}/movie/popular?api_key=${apiKey}&language=es-ES&page=1`;
   fetch(url)
     .then((response) => response.json())
     .then(({results: peliculas}) => {
-      // const peliculas = data.results;
       tarjetas.innerHTML = "";
 
       for (let pelicula of peliculas) {
@@ -48,7 +44,6 @@ function buscarPeliculas() {
     fetch(url)
       .then((response) => response.json())
       .then(({results: peliculas}) => {
-        // const peliculas = data.results;
         tarjetas.innerHTML = "";
 
         for (let pelicula of peliculas) {
@@ -78,4 +73,10 @@ function buscarPeliculas() {
 // *Funcionalidad de inicio*
 window.addEventListener("load", obtenerPeliculasPopulares);
 
-// Llamar a la función buscarPeliculas cuando se
+// *Funcionalidad buscador*
+botonBuscar.addEventListener("click", buscarPeliculas);
+inputBuscar.addEventListener("keyup", (event) => {
+  if (event.keyCode === 13) {
+    buscarPeliculas();
+  }
+});
