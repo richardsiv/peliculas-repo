@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    --main-color: black;
 }
 
 h1 {
@@ -62,4 +63,58 @@ h1 {
 
 .tarjeta h3 {
     text-align: center;
+}
+
+/* Responsive estructura */
+nav {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    background-color: var(--main-color); 
+    padding: 10px; 
+}
+
+nav ul {
+    display: flex;
+    list-style: none; 
+}
+
+nav li {
+    margin-right: 20px; 
+}
+
+nav a {
+    color: white; 
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: black;
+}
+
+footer {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    background-color: var(--main-color); 
+    padding: 10px; 
+}
+
+footer p {
+    color: white; 
+}
+
+
+@media (max-width: 768px) { 
+    nav {
+        flex-direction: column; 
+    }
+    nav ul {
+        flex-direction: column; 
+    }
+    nav li {
+        width: 100%;
+        text-align: center;
+    }
+
 }
