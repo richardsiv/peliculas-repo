@@ -56,25 +56,24 @@
 
       <!-- Banner -->
       <div class="px-4 pt-5 my-5 text-center">
-        <h1 class="display-4 fw-bold">Jhon Wick 4</h1>
+        <h1 class="display-4 fw-bold" id="tituloPelicula"></h1>
         <div class="col-lg-6 mx-auto">
           <!-- Generos -->
-          <p>Fantasía / Crimen / Acción</p>
+          <p id="generosPelicula"></p>
           <div class="row my-4">
             <div class="col-6 col-sm-6">
               <h4>
-                <span class="badge rounded-pill text-bg-light">IMDB: 7/10</span>
+                <span class="badge rounded-pill text-bg-light" id="puntuacionPelicula"></span>
               </h4>
             </div>
             <div class="col-6 col-sm-6">
               <h4>
-                <span class="badge rounded-pill text-bg-light">Duración: 2:00hr</span>
+                <span class="badge rounded-pill text-bg-light" id="duracionPelicula"></span>
               </h4>
             </div>
           </div>
         <div class="overflow-hidden" style="max-height: 30vh;">
-          <div class="container px-5">
-            <img src="/assets/imgs/jhonPoster.jpg" class="img-fluid rounded-3 shadow-lg" alt="Banner Pelicula" width="700" height="500" loading="lazy">
+          <div class="container px-5" id="containerBanner">
           </div>
         </div>
       </div>
@@ -86,9 +85,35 @@
         <!-- Detalles -->
         <div
           class="row g-3"
-          id="detalles"
+          id="detallesPelicula"
         >
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, id ea neque eaque accusamus exercitationem? Adipisci officiis voluptatibus nihil nobis dicta aut labore dolores quia cumque ut. A, veniam veritatis?</p>
+        </div>
+        <!-- Detalles minimos -->
+        <div class="row py-3" id="detallesMinimos">
+          <div class="col-12 col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Dinero recaudado</h5>
+                <p class="card-text" id="dineroPelicula">$ 6.000.000.000</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Reseñas</h5>
+                <p class="card-text" id="reviewsPelicula">1.0000.000 </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Lenguaje oficial</h5>
+                <p class="card-text" id="lenguajePelicula">EN</p>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- Reparto -->
         <h2 class="py-3">Reparto</h2>
@@ -109,36 +134,43 @@
           </div>
 
         </div>
-        <!-- Detalles minimos -->
-        <h2 class="py-3">Más detalles</h2>
-        <div class="row">
-          <div class="col-12 col-sm-4">
+        <!-- Videos: -->
+        <h2 class="py-3">Videos relacionados</h2>
+        <div class="row pb-3">
+          <div class="col-12 col-sm-6">
             <div class="card">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/eppUGLfeULY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              </div>
               <div class="card-body">
-                <h5 class="card-title">Dinero recaudado</h5>
-                <p class="card-text">$ 6.000.000.000</p>
+                <h5 class="card-title">name</h5>
+                <p class="card-text">type</p>
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-6">
             <div class="card">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLsyvDWwjkTqtOmqAiTzzfHspTAztB-udL" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              </div>
               <div class="card-body">
-                <h5 class="card-title">Reseñás</h5>
-                <p class="card-text">1.0000.000 </p>
+                <h5 class="card-title">Fight Club - Trailer</h5>
+                <p class="card-text">This is a short description of the movie Fight Club.</p>
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-6">
             <div class="card">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLsyvDWwjkTqtOmqAiTzzfHspTAztB-udL" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              </div>
               <div class="card-body">
-                <h5 class="card-title">Lenguaje oficial</h5>
-                <p class="card-text">EN</p>
+                <h5 class="card-title">Fight Club - Trailer</h5>
+                <p class="card-text">This is a short description of the movie Fight Club.</p>
               </div>
             </div>
           </div>
         </div>
-        <!-- Videos: -->
-        <!-- TODO: add related videos and put here -->
       </div>
     </div>
 

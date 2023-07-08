@@ -1,6 +1,11 @@
 
 import { apiKey, apiUrl } from "./api.js";
 
+// *Componentes HTML*
+const iconoEstrella = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>`
+
 function obtenerId() {
   const url = window.location.href;
   const urlObj = new URL(url);
@@ -23,6 +28,9 @@ function obtenerDatosPelicula(id) {
       const cast = pelicula.credits.cast; 
       const videos = pelicula.videos.results; 
       const revenue = pelicula.revenue; 
+      const average = pelicula.vote_average; 
+      const count = pelicula.vote_count; 
+      const backdrop = pelicula.backdrop_path; 
       const original_language = pelicula.original_language; 
 
       console.log("Título:", title);
@@ -32,7 +40,11 @@ function obtenerDatosPelicula(id) {
       console.log("Reparto:", cast);
       console.log("Videos:", videos);
       console.log("Dinero recaudado:", revenue);
+      console.log("average:", average);
       console.log("Lenguaje oficial:", original_language);
+      
+      renderizarBanner(title, genres, average, runtime, backdrop)
+      renderizarDetalles(overview, revenue, count, original_language)
     })
     .catch((error) => {
       // Si da chande agregar un alert bonito.
@@ -40,14 +52,62 @@ function obtenerDatosPelicula(id) {
     });
 }
 
+function toHoursAndMinutes(totalMinutes) {
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  return { hours, minutes };
+}
+
+// *Renderizar componentes*
+function renderizarBanner(titulo, generos, puntuacion, duracion, backdrop) {
+  const tituloPelicula = document.getElementById("tituloPelicula");
+  const generosPelicula = document.getElementById("generosPelicula");
+  const puntuacionPelicula = document.getElementById("puntuacionPelicula");
+  const duracionPelicula = document.getElementById("duracionPelicula");
+
+  const containerBanner = document.getElementById("containerBanner");
+  const banner = document.createElement("img");
+  banner.src = `https://image.tmdb.org/t/p/w500${backdrop}`;
+  banner.classList.add("img-fluid", "rounded-3", "shadow-lg")
+
+  const { hours, minutes } = toHoursAndMinutes(duracion)
+
+  containerBanner.appendChild(banner)
+
+  tituloPelicula.innerText = titulo;
+  puntuacionPelicula.innerHTML = `${iconoEstrella}: ${puntuacion} / 10`;
+  duracionPelicula.innerText = `Duración: ${hours}:${minutes}hr`;
+  generosPelicula.innerText = `${generos.map((g) => g.name).join(", ")}`;
+}
+
+function renderizarDetalles(sinopsis, dinero, reviews, lenguaje) {
+  const detallesPelicula = document.getElementById("detallesPelicula");
+  const dineroPelicula = document.getElementById("dineroPelicula");
+  const reviewsPelicula = document.getElementById("reviewsPelicula");
+  const lenguajePelicula = document.getElementById("lenguajePelicula");
+  console.log('separado por puntos', separarPorPuntos(dinero))
+
+  detallesPelicula.innerText = sinopsis;
+  dineroPelicula.innerHTML = `$${separarPorPuntos(dinero)}`;
+  reviewsPelicula.innerHTML = `${separarPorPuntos(reviews)}`;
+  lenguajePelicula.innerText = lenguaje;
+}
 
 // *Funcionalidad de inicio*
-// window.addEventListener("load", () => {
-//   const id = obtenerId();
-//   obtenerDatosPelicula(id);
-// });
+window.addEventListener("load", () => {
+  const id = obtenerId();
+  obtenerDatosPelicula(id);
+});
 
 // *Funcionalidad boton*
 botonVolver.addEventListener("click", () => {
   window.location.href = "index.html";
 });
+
+function separarPorPuntos(numero) {
+  if (typeof numero === "string") {
+    numero = Number(numero);
+  }
+  return numero.toLocaleString("de-DE");
+}
