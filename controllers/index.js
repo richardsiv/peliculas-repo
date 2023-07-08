@@ -13,14 +13,17 @@ function obtenerPeliculasPopulares() {
       tarjetas.innerHTML = "";
 
       for (let pelicula of peliculas) {
+        // console.log(pelicula)
         const tarjeta = document.createElement("div");
         tarjeta.classList.add("tarjeta");
 
         const imagen = document.createElement("img");
-        imagen.src = `https://image.tmdb.org/t/p/w500${pelicula.poster_path}`;
+        imagen.src = `https://image.tmdb.org/t/p/w500${pelicula.backdrop_path}`;
 
         const titulo = document.createElement("h3");
         titulo.textContent = pelicula.title;
+        const fecha = document.createElement("h3");
+        fecha.textContent = pelicula.release_date;
 
         tarjeta.appendChild(imagen);
         tarjeta.appendChild(titulo);
