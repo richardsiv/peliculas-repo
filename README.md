@@ -1,2 +1,2 @@
 # peliculas-repo
-Repositorio de FrontEnd I
+Repositorio de FrontEnd I.
