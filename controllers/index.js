@@ -74,7 +74,7 @@ function buscarPeliculas() {
 }
 
 // *Funcionalidad de inicio*
-window.addEventListener("load", obtenerPeliculasPopulares);
+// window.addEventListener("load", obtenerPeliculasPopulares);
 
 // *Funcionalidad buscador*
 botonBuscar.addEventListener("click", buscarPeliculas);
