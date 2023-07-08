@@ -1,29 +1,160 @@
-
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Movide | Detalles de la película</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Movie | Detalles de la película</title>
 
-<script type="module" src="/controllers/detalles.js"></script>
+    <link rel="shortcut icon" href="/assets/imgs/movie.ico" type="ico" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Oswald"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+  </head>
 
-<body>
-    <div id="volver">
-        <button id="boton-volver">Volver</button>
-    </div>
-    <div id="contenido">
-        <div id="banner"></div>
-        <div id="video"></div>
-        <div id="datos">
-            <h2 id="titulo"></h2>
-            <p id="descripcion"></p>
-            <p id="fecha"></p>
-            <p id="generos"></p>
-            <p id="calificacion"></p>
+  <script type="module" src="/controllers/detalles.js"></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"
+  ></script>
+
+  <body>
+    <!-- Barra de navegación -->
+    <header class="p-3 text-bg-dark">
+      <div class="container">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <a
+            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+            href="/"
+          >
+            <img
+              src="/assets/imgs/movie.png"
+              alt="Logo"
+              width="30"
+              height="30"
+              class="d-inline-block align-text-top"
+            />
+          </a>
+
         </div>
+      </div>
+
+      <!-- Banner -->
+      <div class="px-4 pt-5 my-5 text-center">
+        <h1 class="display-4 fw-bold">Jhon Wick 4</h1>
+        <div class="col-lg-6 mx-auto">
+          <!-- Generos -->
+          <p>Fantasía / Crimen / Acción</p>
+          <div class="row my-4">
+            <div class="col-6 col-sm-6">
+              <h4>
+                <span class="badge rounded-pill text-bg-light">IMDB: 7/10</span>
+              </h4>
+            </div>
+            <div class="col-6 col-sm-6">
+              <h4>
+                <span class="badge rounded-pill text-bg-light">Duración: 2:00hr</span>
+              </h4>
+            </div>
+          </div>
+        <div class="overflow-hidden" style="max-height: 30vh;">
+          <div class="container px-5">
+            <img src="/assets/imgs/jhonPoster.jpg" class="img-fluid rounded-3 shadow-lg" alt="Banner Pelicula" width="700" height="500" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <h2 class="py-3">Detalles</h2>
+        <!-- Detalles -->
+        <div
+          class="row g-3"
+          id="detalles"
+        >
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, id ea neque eaque accusamus exercitationem? Adipisci officiis voluptatibus nihil nobis dicta aut labore dolores quia cumque ut. A, veniam veritatis?</p>
+        </div>
+        <!-- Reparto -->
+        <h2 class="py-3">Reparto</h2>
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 px-md-5 mb-3" id="tarjetas">
+
+          <div class="col">
+            <div class="card shadow-sm rounded-4 rounded-bottom-0">
+              <img src="https://www.themoviedb.org/t/p/w138_and_h175_face/83o3koL82jt30EJ0rz4Bnzrt2dd.jpg" alt="Poster de la película" width="100%" height="225" class="object-fit-cover rounded-top"
+              >
+  
+              <div class="card-body">
+                <h5 class="card-title">Keanu Reaves</h5>
+                <div class="card-text">Personaje: 
+                  <small class="text-muted">2023</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Detalles minimos -->
+        <h2 class="py-3">Más detalles</h2>
+        <div class="row">
+          <div class="col-12 col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Dinero recaudado</h5>
+                <p class="card-text">$ 6.000.000.000</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Reseñás</h5>
+                <p class="card-text">1.0000.000 </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Lenguaje oficial</h5>
+                <p class="card-text">EN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Videos: -->
+        <!-- TODO: add related videos and put here -->
+      </div>
     </div>
-</body>
+
+    <footer>
+      <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Explora películas</a>
+            </li>
+          </ul>
+          <p class="text-center text-muted">
+            &copy; 2023 Top Movie - Richard Siverio
+          </p>
+        </footer>
+      </div>
+    </footer>
+  </body>
 </html>
