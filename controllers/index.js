@@ -81,3 +81,18 @@ inputBuscar.addEventListener("keyup", (event) => {
     buscarPeliculas();
   }
 });
+
+// *Funcionalidad Tema*
+const botonCambiarTema = document.getElementById("boton-tema")
+botonCambiarTema.addEventListener("click", () => {
+  cambiarTema()
+});
+
+function cambiarTema() {
+  const temaActual = document.querySelector("body").getAttribute("data-bs-theme")
+  if (temaActual === "light") {
+    document.querySelector("body").setAttribute("data-bs-theme", "dark")
+  } else {
+    document.querySelector("body").setAttribute("data-bs-theme", "light")
+  }
+}
