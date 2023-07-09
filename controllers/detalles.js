@@ -73,9 +73,9 @@ function obtenerDatosPelicula(id) {
       renderizarBanner(title, genres, average, runtime, backdrop)
       renderizarDetalles(overview, revenue, count, original_language)
       renderizarCartas(cast)
+      renderizarVideos(videos)
     })
     .catch((error) => {
-      // Si da chande agregar un alert bonito.
       alert("Ocurrió un error al obtener los datos de la película: " + error);
     });
 }
@@ -114,19 +114,19 @@ function renderizarDetalles(sinopsis, dinero, reviews, lenguaje) {
   const dineroPelicula = document.getElementById("dineroPelicula");
   const reviewsPelicula = document.getElementById("reviewsPelicula");
   const lenguajePelicula = document.getElementById("lenguajePelicula");
-  console.log('separado por puntos', separarPorPuntos(dinero))
 
   detallesPelicula.innerText = sinopsis;
-  dineroPelicula.innerHTML = `$${separarPorPuntos(dinero)}`;
+  dineroPelicula.innerHTML = `$ ${separarPorPuntos(dinero)}`;
   reviewsPelicula.innerHTML = `${separarPorPuntos(reviews)}`;
   lenguajePelicula.innerText = `${obtenerLenguaje(lenguaje)}`;
 }
 
 function renderizarCartas(repartos) {
-
+  let repartosAgregados = 0;
   for (let reparto of repartos) {
-    console.log(reparto)
-    if (reparto.cast_id > 10) return
+
+    repartosAgregados++;
+    if (repartosAgregados > 8) return
 
     const carta = document.createElement("div");
     carta.innerHTML = `
@@ -145,10 +145,36 @@ function renderizarCartas(repartos) {
       </div>
     `
 
-    carta.addEventListener("click", () => {
-      window.location.href = `detalles.html?id=${reparto.id}`;
-    });
     tarjetas.appendChild(carta);
+  }
+}
+
+function renderizarVideos(listaVideos) {
+  const videosContainer = document.getElementById("videos");
+  let videosAgregados = 0;
+
+  for (let video of listaVideos) {
+    console.log(video)
+
+    videosAgregados++;
+    if (videosAgregados > 4 || video.site !== "YouTube") return
+
+    const cartaVideo = document.createElement("div");
+    cartaVideo.innerHTML = `
+      <div class="col">
+        <div class="card">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/${video.key}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">${video.name}</h5>
+            <p class="card-text">${video.type}</p>
+          </div>
+        </div>
+      </div>
+    `
+
+    videosContainer.appendChild(cartaVideo);
   }
 }
 

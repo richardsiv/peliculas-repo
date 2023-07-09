@@ -19,7 +19,6 @@ function obtenerPeliculasPopulares() {
       renderizarCartas(peliculas)
     })
     .catch((error) => {
-      // Si da chande agregar un alert bonito.
       alert("Ocurrió un error al obtener las películas populares: " + error);
     });
 }
@@ -35,7 +34,6 @@ function buscarPeliculas() {
         renderizarCartas(peliculas)
       })
       .catch((error) => {
-        // Si da chande agregar un alert bonito.
         alert("Ocurrió un error al buscar las películas: " + error);
       });
 }
@@ -43,7 +41,6 @@ function buscarPeliculas() {
 function renderizarCartas(peliculas) {
 
   for (let pelicula of peliculas) {
-    console.log(pelicula)
 
     const carta = document.createElement("div");
     carta.innerHTML = `
