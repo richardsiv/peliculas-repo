@@ -182,9 +182,10 @@ window.addEventListener("load", () => {
 });
 
 // *Funcionalidad boton*
-// botonVolver.addEventListener("click", () => {
-//   window.location.href = "index.html";
-// });
+const botonVolver = document.getElementById("boton-atras")
+botonVolver.addEventListener("click", () => {
+  window.location.href = "index.html";
+});
 
 function separarPorPuntos(numero) {
   if (typeof numero === "string") {
