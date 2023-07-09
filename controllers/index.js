@@ -77,15 +77,23 @@ function renderizarCartas(peliculas) {
   }
 }
 
+const debounce = (callback, wait) => {
+  let timeoutId = null;
+  return (...args) => {
+    window.clearTimeout(timeoutId);
+    timeoutId = window.setTimeout(() => {
+      callback.apply(null, args);
+    }, wait);
+  };
+}
+
 // *Funcionalidad de inicio*
 window.addEventListener("load", obtenerPeliculasPopulares);
 
 // *Funcionalidad buscador*
 botonBuscar.addEventListener("click", buscarPeliculas);
 inputBuscar.addEventListener("keyup", (event) => {
-  if (event.keyCode === 13) {
-    buscarPeliculas();
-  }
+    debounce(buscarPeliculas(), 500)
 });
 
 // *Funcionalidad Tema*
