@@ -31,7 +31,7 @@
     crossorigin="anonymous"
   ></script>
 
-  <body>
+  <body data-bs-theme="light">
     <!-- Barra de navegación -->
     <header class="p-3 text-bg-dark">
       <div class="container">
@@ -48,8 +48,19 @@
               width="30"
               height="30"
               class="d-inline-block align-text-top"
+              style="transform: scale(2);"
             />
           </a>
+
+            <!-- Boton cambiar el tema -->
+            <div class="text-end">
+              <button
+                type="button"
+                id="boton-tema"
+                class="btn btn-outline-light me-2"
+              >
+              </button>
+            </div>
 
         </div>
       </div>
@@ -79,7 +90,7 @@
       </div>
     </header>
 
-    <div class="album py-5 bg-light">
+    <div class="album py-5">
       <div class="container">
         <h2 class="py-3">Detalles</h2>
         <!-- Detalles -->
